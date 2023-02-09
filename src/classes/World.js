@@ -18,10 +18,11 @@ class World {
         this.dy = dy
         this.objects = [];
         this.map = [];
+        this.gameTick = 0;
         this.constructMap(dx, dy);
     }
     addObject(point, type) {
-       const obj = new WorldObject(point);
+       const obj = new WorldObject(point, type);
        this.objects.push(obj);
     }
     printToConsole(dx, dy) {
