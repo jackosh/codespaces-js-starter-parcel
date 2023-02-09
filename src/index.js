@@ -1,15 +1,4 @@
-import _ from 'lodash';
-
-function component() {
-    const element = document.createElement('div');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-    return element;
-}
-
-// document.getElementById("app").appendChild(component());
+// import _ from 'lodash';
 
 let svgns = "http://www.w3.org/2000/svg";
 let container = document.getElementById('game');
