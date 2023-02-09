@@ -1,15 +1,21 @@
-// import _ from 'lodash';
+console.info('<--- index.js started')
 
-let svgns = "http://www.w3.org/2000/svg";
-let container = document.getElementById('game');
+import { GameToSvg } from './classes/GameToSvg';
+import * as gp from './classes/World';
 
-function drawCircle(x, y, radius) {
-    let circle = document.createElementNS(svgns, 'circle');
-    circle.setAttributeNS(null, 'cx', x);
-    circle.setAttributeNS(null, 'cy', y);
-    circle.setAttributeNS(null, 'r', radius);
-    circle.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 2px;' );
-    container.appendChild(circle);
-}
-console.log(container);
-drawCircle(10, 10, 100);
+
+const world = new gp.World();
+const svgContainer = new GameToSvg('game');
+world.addObject(gp.Point.create(70, 10));
+world.addObject(gp.Point.create(60, 400));
+world.addObject(gp.Point.create(30, 10));
+// const player = new WorldObject({x: 0, y: 0});
+// const coin = new WorldObject({x: 20, y: 60});
+// world.objects.push(player);
+// world.objects.push(coin);
+// world.printToMap(3, 1, "x");
+svgContainer.drawObjectsToCanvas(world.objects);
+
+// world.printToConsole(6, 6);
+console.table(world.objects);
+
